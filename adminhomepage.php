@@ -1,3 +1,4 @@
+<!-- aryaman -->
 <?php
 // Start the session
 session_start();
@@ -24,7 +25,7 @@ if ($result_users->num_rows > 0) {
 // Function to handle deleting a user
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     $user_id = $_POST['user_id'];
-
+    
     // Delete the user from the User table
     $sql_delete_user = "DELETE FROM User WHERE id='$user_id'";
     if ($conn->query($sql_delete_user) === TRUE) {
@@ -36,34 +37,114 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
     }
 }
 ?>
+<!-- aryaman -->
 
+
+<!-- shruti -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Homepage</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .user-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .user-actions button {
+            padding: 5px 10px;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .user-actions button:hover {
+            background-color: #c82333;
+        }
+
+        button:hover{
+            cursor: pointer;
+        }
+
+        .logout-form {
+            margin-top: 20px;
+        }
+
+        .logout-form button {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .logout-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Welcome to the Admin Homepage</h2>
-    
-    <!-- List of users -->
-    <h3>User List:</h3>
-    <ul>
-        <?php foreach ($users as $user): ?>
-            <li>
-                <?php echo $user['name']; ?> (<?php echo $user['email']; ?>)
+    <div class="container">
+
+        <h2>Welcome to the Admin Homepage</h2>
+        
+        <!-- List of users -->
+        <h3>User List:</h3>
+        <ul>
+            <?php foreach ($users as $user): ?>
+                <li>
+                    <div class="user-info">
+                        <?php echo $user['name']; ?> (<?php echo $user['email']; ?>)
+                    </div>
                 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                     <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
-                    <button type="submit" name="delete_user">Delete</button>
+                    <button type="submit" name="delete_user" class="user-actions">Delete</button>
                 </form>
             </li>
-        <?php endforeach; ?>
-    </ul>
-
-    <!-- Logout button -->
-    <form method="post" action="logout.php">
-        <button type="submit" name="logout">Logout</button>
-    </form>
-</body>
-</html>
+            <?php endforeach; ?>
+        </ul>
+        
+        <!-- Logout button -->
+        <form method="post" action="logout.php" class="logout-form">
+            <button type="submit" name="logout">Logout</button>
+        </form>
+    </div>
+    </body>
+    </html>
+    <!-- shruti -->

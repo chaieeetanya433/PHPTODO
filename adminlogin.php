@@ -1,3 +1,4 @@
+<!-- atharva -->
 <?php
 // Start the session
 session_start();
@@ -17,13 +18,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $email = test_input($_POST["email"]);
     }
-
+    
     if (empty($_POST["password"])) {
         $passwordErr = "Password is required";
     } else {
         $password = test_input($_POST["password"]);
     }
-
+    
     // Check if there are no errors, verify user credentials
     if (empty($emailErr) && empty($passwordErr)) {
         // Verify user credentials
@@ -56,21 +57,26 @@ function test_input($data) {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-</head>
-<body>
-    <h2>Admin Login</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Email: <input type="text" name="email" value="<?php echo $email;?>">
-        <span class="error"><?php echo $emailErr;?></span>
-        <br><br>
-        Password: <input type="password" name="password" value="<?php echo $password;?>">
-        <span class="error"><?php echo $passwordErr;?></span>
-        <br><br>
-        <input type="submit" name="submit" value="Login">
-    </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="adminlogin.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Admin Login</h2>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            Email: <input type="text" name="email" value="<?php echo $email;?>">
+            <span class="error"><?php echo $emailErr;?></span>
+            <br><br>
+            Password: <input type="password" name="password" value="<?php echo $password;?>">
+            <span class="error"><?php echo $passwordErr;?></span>
+            <br><br>
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </div>
 </body>
 </html>
+
+<!-- atharva -->

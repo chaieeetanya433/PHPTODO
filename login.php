@@ -1,6 +1,6 @@
+<!-- chaitanya -->
 <?php
 include 'config.php';
-error_reporting(E_ALL);
 session_start();
 
 // Initialize variables for error messages
@@ -54,26 +54,31 @@ function test_input($data) {
     return $data;
 }
 ?>
+<!-- chaitanya -->
 
-
+<!-- nikhil -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Email: <input type="text" name="email" value="<?php echo $email;?>">
-        <span class="error"><?php echo $emailErr;?></span>
-        <br><br>
-        Password: <input type="password" name="password" value="<?php echo $password;?>">
-        <span class="error"><?php echo $passwordErr;?></span>
-        <br><br>
-        <p>Haven't you registered yet? <a href="signup.php">Register</a></p><br/>
-        <input type="submit" name="submit" value="Login">
-    </form>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            Email: <input type="text" name="email" value="<?php echo $email;?>">
+            <span class="error"><?php echo $emailErr;?></span>
+            <br><br>
+            Password: <input type="password" name="password" value="<?php echo $password;?>">
+            <span class="error"><?php echo $passwordErr;?></span>
+            <br><br>
+            <p>Haven't you registered yet? <a href="signup.php">Register</a></p><br/>
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </div>
 </body>
 </html>
+<!-- nikhil -->
