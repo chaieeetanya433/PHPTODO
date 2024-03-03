@@ -75,29 +75,58 @@ function test_input($data) {
     <link rel="stylesheet" href="signup.css">
     <style>
         .heading {
-            margin: 5px;
+            margin: 20px auto;
+            text-align: center;
+            position: relative;
+            animation: floating 2s infinite alternate;
+        }
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-10px);
+            }
         }
         .heading img {
             border-radius: 50%;
             height: 80px;
             width: 80px;
+            border: 2px solid #007bff;
+            position: relative;
+            z-index: 2;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .heading img:hover {
+            border-color: #0056b3;
         }
         .heading h4 {
-            padding: 0;
+            padding: 10px;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px;
+            color: #007bff;
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 5px;
+            transition: color 0.3s ease-in-out;
+            z-index: 3;
+        }
+        .heading h4:hover {
+            color: #0056b3;
         }
         .team {
-            left: 0;
             font-weight: normal;
-            font-size: 16px;
+            font-size: 18px;
+            color: #343a40;
         }
     </style>
 </head>
 <body>
     <div class="heading">
-        <img src="./logo.jpg" alt="">
-        <h4>LISTIFY<span class="team">~ by team semicolons</span></h4>
+        <img src="./logodark.jpg" alt="Listify Logo">
+        <h4>LISTIFY<span class="team">~ by team semicolons;</span></h4>
     </div>
     <!-- swapnil -->
     <div class="container">

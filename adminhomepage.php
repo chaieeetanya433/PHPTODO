@@ -117,9 +117,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_user'])) {
         .logout-form button:hover {
             background-color: #0056b3;
         }
+
+        .heading {
+            margin: 20px 10px;
+        }
+        .heading img {
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            border: 2px solid #007bff;
+        }
+        .heading img:hover {
+            border-color: #0056b3;
+        }
+        .heading h4 {
+            font-weight: bold;
+            font-size: 24px;
+            color: #007bff;
+            top: 0%;
+            left: 8%;
+        }
+        .heading h4:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 <body>
+<div class="heading">
+        <img src="./logodark.jpg" alt="Listify Logo">
+        <h4>LISTIFY</h4>
+    </div>
     <div class="container">
 
         <h2>Welcome to the Admin Homepage</h2>
